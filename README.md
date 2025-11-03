@@ -28,3 +28,13 @@ Else
 	
 End if
 ```
+
+## Callback
+
+```4d
+#DECLARE($worker : 4D.SystemWorker; $params : Object)
+
+var $result : Object
+$result:=JSON Parse($worker.response; Is object)
+```
+
