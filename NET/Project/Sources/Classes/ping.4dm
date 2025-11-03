@@ -38,16 +38,11 @@ Function ping($option : Variant; $formula : 4D:C1709.Function) : Collection
 		
 		$command:=This:C1470.escape(This:C1470.executablePath)
 		
-		If (Value type:C1509($option.text)=Is text:K8:3) && (Length:C16($option.text)#0)
-			$command+=" --text "
-			$command+=This:C1470.escape($option.text)
-		End if 
-		
 		$isStream:=True:C214
 		
 		If (Value type:C1509($option.text)=Is text:K8:3) && (Length:C16($option.text)#0)
 			$command+=" --text "
-			$command+=$option.text
+			$command+=This:C1470.quote($option.text)
 		End if 
 		
 		If (Value type:C1509($option.host)=Is text:K8:3) && (Length:C16($option.host)#0)
