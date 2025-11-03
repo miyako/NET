@@ -119,11 +119,6 @@ func runPingDarwin(text string, host string, timeout int) {
 		return
 	}
 	
-	line := string(out)
-	
-	fmt.Printf("Received %s bytes from %s in %v, payload: %s\n",
-	extractBytes(line), host, elapsed, text)
-	
 	var size int
 	lines := string(out)
 	bytesStr := extractBytes(lines)	
