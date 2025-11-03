@@ -1,0 +1,14 @@
+{
+	"methods": {
+		"NET_ping": {
+			"timeStamp": "2025-11-03T13:05:05Z"
+		},
+		"onResponse": {
+			"timeStamp": "2025-11-03T12:59:15Z",
+			"attributes": {
+				"invisible": true,
+				"preemptive": "capable"
+			}
+		}
+	}
+}
