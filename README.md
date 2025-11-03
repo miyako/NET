@@ -38,3 +38,5 @@ var $result : Object
 $result:=JSON Parse($worker.response; Is object)
 ```
 
+<img width="905" height="578" alt="" src="https://github.com/user-attachments/assets/f379c8ac-e971-4c61-921d-f62182c2ec33" />
+
