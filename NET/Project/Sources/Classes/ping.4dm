@@ -47,12 +47,12 @@ Function ping($option : Variant; $formula : 4D:C1709.Function) : Collection
 		
 		If (Value type:C1509($option.text)=Is text:K8:3) && (Length:C16($option.text)#0)
 			$command+=" --text "
-			$command+=This:C1470.escape($option.text)
+			$command+=$option.text
 		End if 
 		
 		If (Value type:C1509($option.host)=Is text:K8:3) && (Length:C16($option.host)#0)
 			$command+=" --host "
-			$command+=This:C1470.escape($option.host)
+			$command+=$option.host
 		End if 
 		
 		If (Value type:C1509($option.timeout)=Is real:K8:4) && ($option.timeout>0)
