@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/github/license/miyako/ping)](LICENSE)
 ![downloads](https://img.shields.io/github/downloads/miyako/ping/total)
 
-# ping
+# NET
 NET_Ping replacement
 
 ## Usage
@@ -17,8 +17,8 @@ If (Count parameters=0)
 	
 Else 
 	
-	var $ping : cs.ping
-	$ping:=cs.ping.new()
+	var $ping : cs.NET.ping
+	$ping:=cs.NET.ping.new()
 	
 	//atomic
 	$result:=$ping.ping({host: "us.4d.com"; timeout: 3; text: "Hello from 4D"})
