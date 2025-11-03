@@ -88,7 +88,7 @@ func runPingWindows(text string, host string, timeout int) {
 	elapsed := time.Since(start)
 		
 	result := PingResult{
-		Size:    n,
+		Size:    n-8,
 		Host:    addr.String(),
 		Elapsed: float64(elapsed.Microseconds()) / 1000,
 		Payload: string(buf[8:n]),
