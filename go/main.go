@@ -43,6 +43,8 @@ func main() {
 
 func runPingWindows(text string, host string, timeout int) {
 
+	start := time.Now()
+	
 	conn, err := icmp.ListenPacket("ip4:icmp", "")
 	if err != nil {
 		panic(err)
@@ -73,7 +75,6 @@ func runPingWindows(text string, host string, timeout int) {
 		panic(err)
 	}
 	
-	start := time.Now()
 	if _, err := conn.WriteTo(data, &net.IPAddr{IP: dstIP}); err != nil {
 		panic(err)
 	}
@@ -114,8 +115,6 @@ func runPingDarwin(text string, host string, timeout int) {
 		"-W", fmt.Sprintf("%d", timeout/1000),
 		host,
 	)
-
-	//fmt.Printf("Running: %v\n", cmd.Args)
 
 	timer := time.AfterFunc(time.Duration(timeout)*time.Millisecond*time.Duration(2), func() {
 		cmd.Process.Kill()
