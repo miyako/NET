@@ -43,11 +43,20 @@ func main() {
 
 func runPingWindows(text string, host string, timeout int) {
 
-	conn, err := icmp.ListenPacket("ip4:icmp", "0.0.0.0")
+	conn, err := icmp.ListenPacket("ip4:icmp", "")
 	if err != nil {
 		panic(err)
 	}
 	defer conn.Close()
+	
+	dstIP := net.ParseIP(host)
+	if dstIP == nil {
+		addrs, err := net.LookupIP(host)
+		if err != nil || len(addrs) == 0 {
+			panic(fmt.Sprintf("cannot resolve host: %v", host))
+		}
+		dstIP = addrs[0]
+	}
 	
 	msg := icmp.Message{
 		Type: ipv4.ICMPTypeEcho,
@@ -65,7 +74,7 @@ func runPingWindows(text string, host string, timeout int) {
 	}
 	
 	start := time.Now()
-	if _, err := conn.WriteTo(data, &net.IPAddr{IP: net.ParseIP(host)}); err != nil {
+	if _, err := conn.WriteTo(data, &net.IPAddr{IP: dstIP}); err != nil {
 		panic(err)
 	}
 	
