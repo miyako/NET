@@ -102,13 +102,15 @@ func runPingDarwin(text string, host string, timeout int) {
 
 	// macOS: use /sbin/ping with custom payload
 	payloadHex := hex.EncodeToString([]byte(text))
-
+	payloadSize := len(text)
+	
 	start := time.Now()
 
 	cmd := exec.Command(
 		"ping",
 		"-c", fmt.Sprintf("%d", 1),
 		"-p", payloadHex,
+		"-s", fmt.Sprintf("%d", payloadSize),
 		"-W", fmt.Sprintf("%d", timeout/1000),
 		host,
 	)
