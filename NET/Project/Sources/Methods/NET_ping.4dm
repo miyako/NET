@@ -11,9 +11,9 @@ Else
 	$ping:=cs:C1710.ping.new()
 	
 	//atomic
-	$result:=$ping.ping({host: "us.4d.com"; timeout: 3; text: "Hello from 4D"})
+	$result:=$ping.ping({host: "us.4d.com"; timeout: 1; text: "Hello from 4D"})
 	
 	//async
-	$ping.ping({host: "us.4d.com"; timeout: 3; text: "Hello from 4D"}; Formula:C1597(onResponse))
+	$ping.ping({host: "us.4d.com"; timeout: 1; text: "Hello from 4D"}; Formula:C1597(onResponse))
 	
 End if 

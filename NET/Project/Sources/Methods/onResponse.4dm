@@ -4,4 +4,9 @@
 TRACE:C157
 
 var $result : Object
-$result:=JSON Parse:C1218($worker.response; Is object:K8:27)
+
+If ($worker.response="{@")
+	$result:=JSON Parse:C1218($worker.response; Is object:K8:27)
+Else 
+	$result:=Null:C1517
+End if 

@@ -69,7 +69,12 @@ Function ping($option : Variant; $formula : 4D:C1709.Function) : Collection
 			//%W-550.2
 			
 			If (This:C1470.controller.stdOut#"")
-				$results.push(JSON Parse:C1218($worker.response; Is object:K8:27))
+				
+				If ($worker.response="{@")
+					$results.push(JSON Parse:C1218($worker.response; Is object:K8:27))
+				Else 
+					$results.push(Null:C1517)
+				End if 
 			End if 
 			
 			This:C1470.controller.clear()
