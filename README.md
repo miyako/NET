@@ -35,7 +35,12 @@ End if
 #DECLARE($worker : 4D.SystemWorker; $params : Object)
 
 var $result : Object
-$result:=JSON Parse($worker.response; Is object)
+
+If ($worker.response="{@")
+	$result:=JSON Parse($worker.response; Is object)
+Else 
+	$result:=Null
+End if 
 ```
 
 <img width="500" height="612" alt="" src="https://github.com/user-attachments/assets/36a7e864-adfe-4fbb-ad7e-dedb375634bc" />  
